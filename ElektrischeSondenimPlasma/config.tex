@@ -1,0 +1,118 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[DIV=calc, paper=a4, fontsize=11pt, twocolumn, fleqn]{scrartcl}	 % A4 paper and 11pt font size
+
+%\usepackage[ngerman]{babel} % English language/hyphenation
+\usepackage[utf8]{inputenc}
+%\usepackage[protrusion=true,expansion=true]{microtype} % Better typography
+\usepackage[svgnames]{xcolor} % Enabling colors by their 'svgnames'
+\usepackage[hang, small, labelfont=bf, up, textfont=it]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{fix-cm}	 % Custom font sizes - used for the initial letter in the document
+\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+
+\usepackage{sectsty} % Enables custom section titles
+\allsectionsfont{\centering\usefont{OT1}{phv}{b}{it}} % Change the font of all section commands
+
+%\usepackage{fancyhdr} % Needed to define custom headers/footers
+%\pagestyle{fancy} % Enables the custom headers/footers
+%\usepackage{lastpage} % Used to determine the number of pages in the document (for "Page X of Total")
+
+\usepackage{kpfonts} %Font
+
+%----------------------------------------------------------------------------------------
+%	GRAPHICS
+%----------------------------------------------------------------------------------------
+
+\usepackage[space]{grffile}
+
+\graphicspath{{C:/Users/Nikolas/SkyDrive/Uni/FP/ElektrischeSondenimPlasma/graphicx/}}
+
+%----------------------------------------------------------------------------------------
+%	MATH TOOLS
+%----------------------------------------------------------------------------------------
+
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{mathtools}
+%\usepackage{xfrac}
+\usepackage{gensymb}
+\usepackage{units}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+%----------------------------------------------------------------------------------------
+%	PLOTTING TOOLS
+%----------------------------------------------------------------------------------------
+
+\usepackage{gnuplottex}
+
+%----------------------------------------------------------------------------------------
+%	DRAWING TOOLS
+%----------------------------------------------------------------------------------------
+
+%\usepackage{tikz}
+%\usepackage{pstricks,pst-text}
+%\usepackage{etex,pst-plot}
+%\usepackage{pst-coil}
+%\usepackage[crop=off]{auto-pst-pdf}
+%\usepackage{epstopdf}
+
+%----------------------------------------------------------------------------------------
+%	NEW DEFINITIONS
+%----------------------------------------------------------------------------------------
+
+\newcommand{\mathtext}[1]{\text{\scriptsize{#1}}}
+\newcommand{\subsc}[2]{#1_{\text{\scriptsize #2}}}
+\renewcommand{\d}{\text{d}}
+\newcommand{\md}{\scriptsize{.}}
+\newcommand{\mc}{\scriptsize{,}}
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Tab.}
+\renewcommand{\labelitemi}{\ding{118}} % Item Symbol
+
+%\addto\captionsenglish{
+%  \renewcommand{\figurename}{Fig.}
+%  \renewcommand{\tablename}{Table of Contents}
+%}
+
+%----------------------------------------------------------------------------------------
+%	HEAD/FOOT
+%----------------------------------------------------------------------------------------
+
+\usepackage{scrlayer-scrpage}
+\clearscrheadfoot
+\ifoot{\footnotesize \rightmark}
+\ofoot{\footnotesize \pagemark}
+
+%\usepackage[autooneside=false,markcase=noupper]{scrlayer-scrpage}
+%\clearscrheadfoot
+%\ifoot{\ifstr{\rightbotmark}{\leftmark}{}{\rightbotmark}}
+%\ofoot{\footnotesize \pagemark}
+
+\automark[subsection]{section}
+
+\pagestyle{scrheadings} % Show chapter titles as headings
+
+
+%\makeatletter
+%% Damit die letzte (\botmark) statt der ersten (\firstmark) Marke auf
+%% einer Seite für die "rechte Marke" genommen wird:
+%\providecommand*{\rightbotmark}{\expandafter\@rightmark\botmark\@empty\@empty}
+%\makeatother
+
+\setfootsepline{0.5pt}
+\setheadsepline{0.5pt}
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\usepackage{lettrine} % Package to accentuate the first letter of the text
+\newcommand{\initial}[1]{ % Defines the command and style for the first letter
+\lettrine[lines=3,lhang=0.3,nindent=0em]{
+\color{RoyalBlue}
+{\textsf{#1}}}{}}

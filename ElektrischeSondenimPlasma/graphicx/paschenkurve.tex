@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{kpfonts}
+
+\usetikzlibrary{arrows}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tikzpicture}[scale=1]
+
+	\tikzset{>=stealth}
+
+	\draw[->, thick] (0,2) -- (0,8) node [above] {$U_{\scriptsize \text{br}}$};
+	\draw[->, thick] (0,2) -- (7,2) node [right] {$pd$};
+
+	\begin{scope}[smooth,draw=gray!20]
+		\draw[black, thick] plot[id=paschenkurve1,domain=1.8:7,samples=100] function {x/( log(x) + log(log(1+1)) )};
+        \draw[red, thick] plot[id=paschenkurve2,domain=1.1:7,samples=100] function {x/( log(3*x) + log(log(1+0.5)) )};
+        \draw[green, thick] plot[id=paschenkurve3,domain=0.5:7,samples=100] function {3*x/( log(2*x) + log(log(1+3)) )};
+	\end{scope}
+
+\end{tikzpicture}
+
+\end{document}

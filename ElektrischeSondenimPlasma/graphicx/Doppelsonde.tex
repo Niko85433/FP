@@ -1,0 +1,41 @@
+\documentclass{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{kpfonts}
+
+\usetikzlibrary{arrows}
+
+\usetikzlibrary{decorations.text}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tikzpicture}[scale=0.8]
+
+	\tikzset{>=stealth}
+
+	\draw[->, thick] (0,-5) -- (0,5) node [above] {$I$};
+	\draw[->, thick] (-5,0) -- (5,0) node [right] {$U$};
+	
+	%Plasmaparameter
+	\node (Ii1) at (-1,3) {$I_{\text{\scriptsize i, sat}}^1$};
+	\draw[->] (Ii1) -- (0,3);
+	\node (Ii2) at (1,-3) {$I_{\text{\scriptsize i, sat}}^2$};
+	\draw[->] (Ii2) -- (0,-3);
+	\node (I) at (2,1) {$I \propto \left. \frac{\text{d} I}{\text{d} U} \right|_{U=0} \cdot U$};	
+	\fill[opacity=0.1, rotate=80] (0,0) circle (1.5 and 0.25);
+	\draw[out=270, in=30, ->] (I) to (0.1,0.1);
+	
+
+	%Ströme
+	\draw[red!80!black, thick] plot[id=doubleprobe1, domain=-5:5, samples=200] function {3*tanh(2*x)+0.1*x};
+	\draw[dashed] plot[id=doubleprobe2, domain=0:5, samples=200] function {0.1*x+3};
+	\draw[dashed] plot[id=doubleprobe3, domain=-5:0, samples=200] function {0.1*x-3};
+	\draw[dashed] plot[id=doubleprobe4, domain=-0.7:0.7, samples=200] function {6*x};
+	
+	
+	
+\end{tikzpicture}
+
+\end{document}

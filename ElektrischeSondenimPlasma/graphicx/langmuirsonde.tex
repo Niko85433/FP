@@ -1,0 +1,45 @@
+\documentclass{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{kpfonts}
+
+\usetikzlibrary{arrows}
+
+\usetikzlibrary{decorations.text}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tikzpicture}[scale=0.8]
+
+	\tikzset{>=stealth}
+
+	\draw[->, thick] (0,-1) -- (0,7) node [above] {$I$};
+	\draw[->, thick] (-6,0) -- (6,0) node [right] {$U$};
+	
+	%Plasmaparameter
+	\draw[black, dashed, thick] (-1.3,0) -- (-1.3,2.2) node [above] {$U_{\scriptsize \text{fl}}$};	
+	\draw[black, dashed, thick] (2,0) -- (2,5) node [midway, right] {$U_{\scriptsize \text{pl}}$};
+	\draw[black, dashed, thick] (-6,-0.3) -- (0,-0.3) node [below, pos=1.1] {$I_{\scriptsize \text{i, sat}}$};
+	\draw[black, dashed, thick] (0,5.2) -- (5,5.2) node [left,pos=0] {$I_{\scriptsize \text{e, sat}}$};
+
+	%Ströme
+	\begin{scope}[smooth,draw=gray!20]
+		\draw[red!80!black, thick] plot[id=langmuir1,domain=-6:2,samples=200] function {-0.1*(2-x)**(0.5) + 5*exp(x-2)};
+		\draw[blue, thick] plot[id=langmuir2,domain=-6:2,samples=200] function {5*exp(x-2)};
+		\draw[green!80!black, thick] plot[id=langmuir3,domain=-6:2,samples=200] function {-0.1*(2-x)**(0.5)};
+	\end{scope}
+	
+	%verschiedene Sondenoberflächen
+	\draw[red!80!black, thick] (2,5) .. controls (2.2,5.1) and (2.4,5.2) .. (5,5.2) node [above, pos=0.9] {Plane};
+	\draw[red!80!black, thick, dashed] (2,5) .. controls (2.5,5.5) and (3,6) .. (5,6.5);
+	\path [decorate,decoration={text along path, text align=center, text={|\color{red!80!black}|Cylinder}, raise=4pt}] (2,5) .. controls (2.5,5.5) and (3,6) .. (5,6.5);
+	\draw[decorate, decoration={text along path, text={|\color{red!80!black}|Sphere}, text align={center}, raise=4pt}]  (2,5) .. controls (2.25,6) and (2.5,6.5) .. (3,7);
+       \draw[red!80!black, thick, dotted] (2,5) .. controls (2.25,6) and (2.5,6.5) .. (3,7);% node [above, sloped, midway] {sphärisch};
+	
+
+
+\end{tikzpicture}
+
+\end{document}
